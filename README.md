@@ -106,25 +106,37 @@ mongodb-compass可视化下载 https://www.mongodb.com/try/download/compass
    ```javascript
    {
       "scripts": {
-         "test": "jest"
+         "test": "jest --coverage"
       }
    }
    ```
 
 3. **配置 Jest**
+   新建一个jest.config.js
 
-   ```json
-   {
-     "jest": {
-       "testEnvironment": "node",
-       "collectCoverage": true,
-       "coverageDirectory": "coverage"
-     }
-   }
+   ```javascript
+   module.exports = {
+     testEnvironment: "node",
+     collectCoverage: true,
+     coverageDirectory: "coverage",
+     coverageThreshold: {
+       global: {
+         branches: 80,
+         functions: 80,
+         lines: 80,
+         statements: 80,
+       },
+     },
+   };
    ```
 
 4. **新建test文件**
    代码diy
+
+5. **运行jest**
+   ```bash
+   npm run test
+   ```
 
 ## 适配 github action
 
