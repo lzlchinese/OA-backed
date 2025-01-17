@@ -4,7 +4,7 @@ on:
   push: # 测试的时候才放开
 
 jobs:
-  run-jest-tests:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -19,5 +19,6 @@ jobs:
         run: |
           npm i
 
-      - name: Run Jest
-        run: npm run format
+      - name: Run Prettier check
+        run: npx prettier --check .
+        # continue-on-error: true  # 防止在格式化检查失败时终止工作流
