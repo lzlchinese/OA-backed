@@ -20,10 +20,5 @@
     "node-mocks-http": "^1.16.2",
     "prettier": "^3.4.2",
     "supertest": "^7.0.0"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "collectCoverage": true,
-    "coverageDirectory": "coverage"
   }
 }

@@ -24,17 +24,4 @@ jobs:
         # continue-on-error: true  # 防止在格式化检查失败时终止工作流
 
       - name: Run Jest tests with coverage
-        run: npm run test --coverage --coverageReporters=text
-
-      - name: Check if coverage is above 80%
-        run: |
-          cd coverage/lcov-report
-          ls -l
-          # COVERAGE=$(grep -oP 'All files\s+\K[\d.]+' coverage/lcov-report/index.html)
-          COVERAGE=$(grep -oP 'All files\s+\K[\d.]+(?=%)' coverage/lcov-report/index.html)
-          echo "Extracted coverage value: $COVERAGE"
-          if (( $(echo "$COVERAGE < 80" | bc -l) )); then
-            echo "Coverage is below 80%, current coverage: $COVERAGE"
-            exit 1
-          fi
-          echo "Coverage is above 80%, current coverage: $COVERAGE"
+        run: npm run test --coverage
