@@ -64,3 +64,32 @@ OA-BACKED/
 安装教程参考 https://www.cnblogs.com/zhoulifeng/p/9429597.html
 
 mongodb-compass可视化下载 https://www.mongodb.com/try/download/compass
+
+## 适配 github action
+
+新建.github/workflows/xxx.yml文件（文件夹必须正确）
+开头如下
+```yml
+name: CI Pipeline
+
+on:
+  push: # 测试的时候才放开
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+
+      - name: Install
+        run: |
+          npm i
+```
+之后想怎么做可自己diy，比如检验format，jest等
+
