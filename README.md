@@ -65,10 +65,72 @@ OA-BACKED/
 
 mongodb-compass可视化下载 https://www.mongodb.com/try/download/compass
 
+## 适配 prettier
+
+1. **安装 prettier**  
+   首先，确保你的项目中安装了 Prettier。如果你还没有安装，可以通过以下命令进行安装：
+
+   ```bash
+   npm install --save-dev prettier
+   ```
+
+2. **在 package.json 中添加脚本**
+   在 package.json 中添加以下脚本：
+
+   ```javascript
+   {
+      "scripts": {
+         "format": "prettier --write ."
+      }
+   }
+   ```
+
+3. **通过以下命令来格式化代码**
+
+   ```bash
+   npm run format
+   ```
+
+## 适配 jest
+
+1. **安装 jest**  
+   如果还没有安装 Jest，可以通过以下命令来安装：
+
+   ```bash
+   npm install --save-dev jest
+   ```
+
+2. **在 package.json 中添加脚本**
+   在 package.json 中添加以下脚本：
+
+   ```javascript
+   {
+      "scripts": {
+         "test": "jest"
+      }
+   }
+   ```
+
+3. **配置 Jest**
+
+   ```json
+   {
+     "jest": {
+       "testEnvironment": "node",
+       "collectCoverage": true,
+       "coverageDirectory": "coverage"
+     }
+   }
+   ```
+
+4. **新建test文件**
+   代码diy
+
 ## 适配 github action
 
 新建.github/workflows/xxx.yml文件（文件夹必须正确）
 开头如下
+
 ```yml
 name: CI Pipeline
 
@@ -91,5 +153,5 @@ jobs:
         run: |
           npm i
 ```
-之后想怎么做可自己diy，比如检验format，jest等
 
+之后想怎么做可自己diy，比如检验format，jest等
