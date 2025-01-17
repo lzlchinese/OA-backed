@@ -41,7 +41,7 @@ OA系统的后端接口
 
    默认情况下，应用会在 http://localhost:3000 端口启动。
 
-   ## 项目结构
+## 项目结构
    ```text
    OA-BACKED/
     ├── bin/
@@ -55,6 +55,14 @@ OA系统的后端接口
     ├── app.js               # 应用程序主文件
     └── package.json         # 项目配置文件
    ```
+
+## mongodb安装
+官网网址下载 https://www.mongodb.com/try/download/community
+
+安装教程参考 https://www.cnblogs.com/zhoulifeng/p/9429597.html
+
+mongodb-compass可视化下载 https://www.mongodb.com/try/download/compass
+
 
 
 
