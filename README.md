@@ -57,7 +57,7 @@ OA-BACKED/
  │   ├── index.js
  │   └── users.js
  ├── services/            # api代码
- ├── tests/               # jest代码 
+ ├── tests/               # jest代码
  ├── views/               # 视图模板（如果使用视图引擎）
  ├── app.js               # 应用程序主文件
  └── package.json         # 项目配置文件
