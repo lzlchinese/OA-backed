@@ -57,13 +57,61 @@ OA-BACKED/
  └── package.json         # 项目配置文件
 ```
 
-## mongodb安装
+## 连接 mongodb
 
-官网网址下载 https://www.mongodb.com/try/download/community
+1. **安装 Mongoose**  
+   在你的项目根目录下执行以下命令来安装 mongoose：
 
-安装教程参考 https://www.cnblogs.com/zhoulifeng/p/9429597.html
+   ```bash
+   npm install mongoose
+   ```
 
-mongodb-compass可视化下载 https://www.mongodb.com/try/download/compass
+2. **创建 MongoDB 连接**
+   在app.js里面连接到 MongoDB 数据库
+
+   ```javascript
+   const mongoose = require("mongoose");
+   mongoose
+     .connect("mongodb://localhost:27017/mydatabase", {
+       useNewUrlParser: true,
+       useUnifiedTopology: true,
+     })
+     .then(() => {
+       console.log("MongoDB connected!");
+     })
+     .catch((err) => {
+       console.log("MongoDB connection error:", err);
+     });
+   ```
+
+3. **创建 Schema 和 Model**
+   在根目录中创建models/xxx.js
+
+   ```javascript
+   const mongoose = require("mongoose");
+
+   const xxSchema = new mongoose.Schema({
+     name: String,
+     age: Number,
+     email: String,
+   });
+
+   const XXX = mongoose.model(模型名称, xxSchema, 集合名称);
+
+   module.exports = XXX;
+   ```
+
+4. **使用model**
+
+   ```javascript
+   const xxx = require("../../models/xxx");
+
+   xxx.find(); // 查询数据
+   xxx.findOne({ email: String }); // 查询一个特定的用户
+   xxx.findById(id); // 查询特定的id
+   ...
+
+   ```
 
 ## 适配 prettier
 
@@ -131,6 +179,7 @@ mongodb-compass可视化下载 https://www.mongodb.com/try/download/compass
    ```
 
 4. **新建test文件**
+
    代码diy
 
 5. **运行jest**
