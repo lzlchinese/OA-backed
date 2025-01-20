@@ -1,5 +1,6 @@
 var createError = require("http-errors");
 var express = require("express");
+const mongoose = require("mongoose");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
@@ -7,6 +8,19 @@ var logger = require("morgan");
 var usersRouter = require("./routes/users");
 
 var app = express();
+
+// 连接到 MongoDB
+mongoose
+  .connect("mongodb://localhost:27017/oa-backed", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("MongoDB connected!");
+  })
+  .catch((err) => {
+    console.log("MongoDB connection error:", err);
+  });
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

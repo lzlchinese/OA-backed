@@ -1,5 +1,8 @@
-function getUser(req, res, next) {
-  return res.status(200).send();
+const User = require("../../models/User");
+
+async function getUser(req, res, next) {
+  const users = await User.find(); // 返回所有文档
+  return res.json(users);
 }
 
 module.exports = {
