@@ -45,13 +45,19 @@ OA系统的后端接口
 
 ```text
 OA-BACKED/
+ ├── .github/workflows
+ │   └── workflow.yml     # 提交代码会执行check 的 github action
  ├── bin/
  │   └── www              # 服务器启动脚本
+ ├── coverage/            # 代码测试覆盖率
+ ├── models/              # mongoose模型
  ├── node_modules/        # 项目依赖模块
  ├── public/              # 静态文件（如样式、图片等）
  ├── routes/              # 定义路由
  │   ├── index.js
  │   └── users.js
+ ├── services/            # api代码
+ ├── tests/               # jest代码
  ├── views/               # 视图模板（如果使用视图引擎）
  ├── app.js               # 应用程序主文件
  └── package.json         # 项目配置文件
@@ -216,3 +222,7 @@ jobs:
 ```
 
 之后想怎么做可自己diy，比如检验format，jest等
+
+## 杂记
+
+创建.gitignore，加上/node_modules和/coverage等会变化的文件夹
