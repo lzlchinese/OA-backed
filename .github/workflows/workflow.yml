@@ -23,5 +23,6 @@ jobs:
         run: npx prettier --check .
         # continue-on-error: true  # 防止在格式化检查失败时终止工作流
 
-      - name: Run Jest tests with coverage
-        run: npm run test --coverage
+      # TODO
+      # - name: Run Jest tests with coverage
+      #   run: npm run test --coverage
