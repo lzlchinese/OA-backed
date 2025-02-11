@@ -7,6 +7,7 @@ const processSchema = new mongoose.Schema({
   // 1: 人事教育类
   // 1-1: 长驻申请
   processType: String,
+  processStatus: String,
   createPerson: String,
   createTime: Date,
   modifitionTime: Date,

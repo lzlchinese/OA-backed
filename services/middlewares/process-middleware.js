@@ -1,7 +1,13 @@
 const Process = require("../../models/Process");
 
 async function getProcess(req, res, next) {
-  const process = await Process.find(); // 返回所有文档
+  let process = null;
+  // 有点问题，需要修改
+  if (req.query?.processStatus) {
+    process = await Process.find(req.query);
+  } else {
+    process = await Process.find();
+  }
   return res.json(process);
 }
 
