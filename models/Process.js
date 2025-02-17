@@ -9,9 +9,11 @@ const processSchema = new mongoose.Schema({
   processType: String,
   processStatus: String,
   createPerson: String,
+  updatePerson: String,
   createTime: Date,
   modifitionTime: Date,
   processData: Object,
+  approve: Number,
 });
 
 // 创建模型
