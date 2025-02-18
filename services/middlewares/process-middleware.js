@@ -1,5 +1,6 @@
 const Process = require("../../models/Process");
 
+// 获取所有process的信息
 async function getProcess(req, res, next) {
   let process = null;
   // 有点问题，需要修改
@@ -11,6 +12,7 @@ async function getProcess(req, res, next) {
   return res.json(process);
 }
 
+// 新建流程
 async function createProcess(req, res, next) {
   if (
     !req.body.processName ||
@@ -49,7 +51,8 @@ async function createProcess(req, res, next) {
     });
 }
 
-async function updateProcess(req, res, next) {
+// 批准流程
+async function approveProcess(req, res, next) {
   req.body.modifitionTime = new Date();
   // if (req.body.approve != 1) {
   //   req.body
@@ -74,8 +77,16 @@ async function updateProcess(req, res, next) {
     });
 }
 
+// 修改流程
+async function updateProcess(req, res, next) {}
+
+// 删除流程
+async function deleteProcess(req, res, next) {}
+
 module.exports = {
   getProcess,
   createProcess,
+  approveProcess,
   updateProcess,
+  deleteProcess,
 };
