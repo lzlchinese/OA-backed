@@ -1,9 +1,11 @@
 const UserMiddleWare = require("./middlewares/process-middleware");
 
 const getProcess = [UserMiddleWare.getProcess];
-const saveProcess = [UserMiddleWare.saveProcess];
+const createProcess = [UserMiddleWare.createProcess];
+const updateProcess = [UserMiddleWare.updateProcess];
 
 module.exports = {
   getProcess,
-  saveProcess,
+  createProcess,
+  updateProcess,
 };
