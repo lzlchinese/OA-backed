@@ -10,6 +10,7 @@ const processSchema = new mongoose.Schema({
   processStatus: String,
   createPerson: String,
   updatePerson: String,
+  nextPerson: String,
   createTime: Date,
   modifitionTime: Date,
   processData: Object,
