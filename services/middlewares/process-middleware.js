@@ -61,7 +61,7 @@ async function approveProcess(req, res, next) {
     .then((result) => {
       if (!result) {
         return res.status(404).send({
-          message: "找不到数据",
+          message: "找不到对应流程",
         });
       } else {
         return res.status(201).send({
@@ -81,7 +81,25 @@ async function approveProcess(req, res, next) {
 async function updateProcess(req, res, next) {}
 
 // 删除流程
-async function deleteProcess(req, res, next) {}
+async function deleteProcess(req, res, next) {
+  try {
+    const process = await Process.findByIdAndDelete(req.body.id);
+    if (process === null) {
+      return res.status(404).send({
+        message: "找不到对应流程",
+      });
+    } else {
+      return res.status(201).send({
+        message: "流程删除成功",
+      });
+    }
+  } catch (err) {
+    return res.status(400).send({
+      message: "流程删除失败",
+      error: err,
+    });
+  }
+}
 
 module.exports = {
   getProcess,
