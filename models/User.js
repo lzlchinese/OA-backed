@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
   officeArea: String,
   entryTime: String,
   qualification: String,
-  Technical: String,
+  technical: String,
 });
 
 // 创建模型
